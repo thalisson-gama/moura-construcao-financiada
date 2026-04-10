@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0e1222" />
+  <meta name="description" content="Moura Engenharia | Construção financiada em Uberlândia. Orçamento sob controle, obra monitorada e financiamento aprovado do terreno às chaves." />
+  <meta name="robots" content="index,follow" />
+
+  <title>Moura Engenharia | Construção Financiada com Orçamento Sob Controle</title>
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content="Moura Engenharia | Construção Financiada" />
+  <meta property="og:description" content="Do terreno às chaves, com previsibilidade, transparência e obra monitorada." />
+  <meta property="og:image" content="assets/img/hero-poster.webp" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png" />
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon-180.png" />
+
+  <!-- Fonts: Inter (body) + Space Grotesk (display) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Preload key assets. Note: the video is fetched via JS as a Blob
+       (not loaded by the <video> element directly) so we use as="fetch"
+       to warm the HTTP cache for that fetch() call. -->
+  <link rel="preload" as="fetch" href="assets/video/house-scroll.mp4" type="video/mp4" crossorigin />
+  <link rel="preload" as="image" href="assets/img/hero-poster.webp" fetchpriority="high" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- GTM - Head (client) -->
+</head>
+<body>
+  <!-- GTM - Body start (client) -->
+
+  <!-- ============================================================== -->
+  <!-- HERO | scroll-driven video                                     -->
+  <!-- Two logo placements:                                           -->
+  <!--  - .page-brand--mobile sits inside .hero (outside the sticky)  -->
+  <!--    so it behaves exactly as the previously approved mobile     -->
+  <!--    look (top of page, scrolls with the hero).                  -->
+  <!--  - .page-brand--desktop is the FIRST child of .hero__content,  -->
+  <!--    so it lives in the same flow column as the eyebrow + h1     -->
+  <!--    + sub + CTAs - left aligned, pinned with them through the   -->
+  <!--    sticky scrub, and disappears together with them when the    -->
+  <!--    next section starts.                                        -->
+  <!-- ============================================================== -->
+  <section id="hero" class="hero">
+    <div class="page-brand page-brand--mobile">
+      <img src="assets/img/logo.webp" alt="Moura Engenharia | Construtora e Incorporadora" width="800" height="800" />
+    </div>
+    <div class="hero__scroll-track" id="hero-track">
+      <div class="hero__sticky">
+        <!-- Video src is intentionally NOT set in HTML. main.js fetches
+             the mp4 as a Blob and assigns a blob: URL so seeking works
+             on any host (Cloudflare Pages serves mp4 without reliable
+             HTTP Range support, which would otherwise break scrubbing). -->
+        <video
+          id="hero-video"
+          class="hero__video hero__video--desktop"
+          poster="assets/img/hero-poster.webp"
+          muted
+          playsinline
+          preload="none"
+          disablepictureinpicture
+          webkit-playsinline
+          aria-hidden="true"></video>
+
+        <video
+          id="hero-video-mobile"
+          class="hero__video hero__video--mobile"
+          poster="assets/img/hero-poster.webp"
+          muted
+          playsinline
+          preload="none"
+          disablepictureinpicture
+          webkit-playsinline
+          aria-hidden="true"></video>
+
+        <div class="hero__overlay" aria-hidden="true"></div>
+
+        <div class="hero__content container">
+          <div class="page-brand page-brand--desktop">
+            <img src="assets/img/logo-tight.webp" alt="Moura Engenharia | Construtora e Incorporadora" width="743" height="252" />
+          </div>
+          <p class="eyebrow">Construção financiada em Uberlândia</p>
+          <h1 class="hero__headline">
+            Construa no seu novo loteamento
+            <span class="accent">com orçamento sob controle</span>
+            e financiamento aprovado do terreno às chaves.
+          </h1>
+          <p class="hero__sub">
+            Assumimos projeto, obra e viabilidade do financiamento bancário. Você acompanha cada etapa e cada nota fiscal, com a previsibilidade e a engenharia que o mercado costuma não entregar.
+          </p>
+          <div class="hero__cta">
+            <a href="#viabilidade" class="btn btn--accent btn--lg">Solicitar análise de viabilidade</a>
+            <a href="#diferenciais" class="btn btn--ghost btn--lg">Por que a Moura</a>
+          </div>
+          <div class="hero__scroll-hint" aria-hidden="true">
+            <span></span>
+            Role para continuar
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- PROOF BAR                                                       -->
+  <!-- ============================================================== -->
+  <section class="proof">
+    <div class="container proof__grid">
+      <div class="proof__item">
+        <div class="proof__num"><span data-count="50000">0</span><small>m²</small></div>
+        <div class="proof__label">Executados em obras</div>
+      </div>
+      <div class="proof__item">
+        <div class="proof__num">+<span data-count="10">0</span></div>
+        <div class="proof__label">Anos de atuação em Uberlândia</div>
+      </div>
+      <div class="proof__item">
+        <div class="proof__num">100<small>%</small></div>
+        <div class="proof__label">Obras monitoradas por nota fiscal</div>
+      </div>
+      <div class="proof__item">
+        <div class="proof__num">A+C</div>
+        <div class="proof__label">Financiamento Aquisição e Construção</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- PROBLEM / POSITIONING                                           -->
+  <!-- ============================================================== -->
+  <section class="positioning" id="positioning">
+    <div class="container positioning__inner">
+      <p class="eyebrow eyebrow--dark">O problema real do mercado</p>
+      <h2 class="section-title">
+        Construtoras vendem um número bonito no começo.
+        <span class="accent">A Moura entrega a chave no final.</span>
+      </h2>
+      <p class="section-lead">
+        Quem está saindo do aluguel para construir no próprio terreno conhece os três medos desse mercado: a obra que não sai do papel, o orçamento que estoura e o modelo de "preço de custo" que nunca termina de fechar uma conta. Nós existimos para eliminar esses três cenários dentro de um único contrato.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- DIFERENCIAIS | 4 pilares                                        -->
+  <!-- ============================================================== -->
+  <section class="pillars" id="diferenciais">
+    <div class="container">
+      <p class="eyebrow">Por que a Moura</p>
+      <h2 class="section-title">Quatro compromissos que sua família pode auditar</h2>
+
+      <div class="pillars__grid">
+        <article class="pillar">
+          <div class="pillar__num">01</div>
+          <h3 class="pillar__title">Previsibilidade do primeiro ao último metro</h3>
+          <p class="pillar__text">
+            Trabalhamos com escopo fechado, cronograma assinado e medição por etapa. Você sabe desde a primeira reunião quanto vai custar, quando vamos começar e quando vamos entregar.
+          </p>
+        </article>
+
+        <article class="pillar">
+          <div class="pillar__num">02</div>
+          <h3 class="pillar__title">Financiamento Aquisição e Construção aprovado</h3>
+          <p class="pillar__text">
+            Cuidamos da viabilidade com a Caixa e parceiros. Se o seu perfil qualifica, estruturamos o financiamento para o terreno e a obra num mesmo contrato - sem você precisar costurar dois bancos.
+          </p>
+        </article>
+
+        <article class="pillar">
+          <div class="pillar__num">03</div>
+          <h3 class="pillar__title">Transparência documentada por nota fiscal</h3>
+          <p class="pillar__text">
+            Cada compra, cada etapa, cada medição passa por comprovação formal. Nada do modelo antigo de "confia no preço". Você vê para onde vai cada real investido na sua casa.
+          </p>
+        </article>
+
+        <article class="pillar">
+          <div class="pillar__num">04</div>
+          <h3 class="pillar__title">Engenharia que entrega - e registra</h3>
+          <p class="pillar__text">
+            Equipe multidisciplinar, ART assinada e obra monitorada por engenheiro responsável. A entrega inclui a documentação completa e regularizada, pronta para averbação.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- COMO FUNCIONA | 4 etapas                                        -->
+  <!-- ============================================================== -->
+  <section class="process" id="processo">
+    <div class="container">
+      <p class="eyebrow eyebrow--dark">Como funciona</p>
+      <h2 class="section-title">Do terreno ao habite-se em quatro etapas monitoradas</h2>
+
+      <ol class="process__list">
+        <li class="process__step">
+          <div class="process__step-head">
+            <span class="process__index">01</span>
+            <h3>Diagnóstico e viabilidade financeira</h3>
+          </div>
+          <p>
+            Analisamos seu perfil de crédito, o terreno e o loteamento. Entregamos um parecer claro sobre o modelo de financiamento ideal e o valor real que você pode construir.
+          </p>
+        </li>
+        <li class="process__step">
+          <div class="process__step-head">
+            <span class="process__index">02</span>
+            <h3>Projeto e aprovação</h3>
+          </div>
+          <p>
+            Desenvolvemos o projeto arquitetônico e estrutural, aprovamos junto à prefeitura e ao banco financiador, e travamos o escopo e o orçamento do contrato.
+          </p>
+        </li>
+        <li class="process__step">
+          <div class="process__step-head">
+            <span class="process__index">03</span>
+            <h3>Construção</h3>
+          </div>
+          <p>
+            Nossa equipe construirá o seu imóvel, garantindo gestão, economia e máxima qualidade. Você acompanha cada etapa com relatórios, fotos e comprovação por nota fiscal.
+          </p>
+        </li>
+        <li class="process__step">
+          <div class="process__step-head">
+            <span class="process__index">04</span>
+            <h3>Entrega e regularização</h3>
+          </div>
+          <p>
+            Casa entregue com documentação completa, habite-se e averbação. Sem obra parada, sem surpresa, sem pendências legais empurradas para o cliente.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- OBRAS | galeria                                                 -->
+  <!-- ============================================================== -->
+  <section class="gallery" id="obras">
+    <div class="container">
+      <p class="eyebrow">Obras entregues</p>
+      <h2 class="section-title">Projetos reais, entregues em loteamentos de Uberlândia e região</h2>
+      <p class="section-lead section-lead--short">
+        Uma amostra das nossas entregas. Cada obra percorreu o mesmo processo de orçamento fechado, gestão monitorada e documentação por nota fiscal que apresentamos na primeira reunião.
+      </p>
+
+      <div class="gallery__grid">
+        <figure class="gallery__item"><img loading="lazy" src="assets/img/obras/obra-01.webp" alt="Obra Moura Engenharia 01" /></figure>
+        <figure class="gallery__item"><img loading="lazy" src="assets/img/obras/obra-02.webp" alt="Obra Moura Engenharia 02" /></figure>
+        <figure class="gallery__item"><img loading="lazy" src="assets/img/obras/obra-03.webp" alt="Obra Moura Engenharia 03" /></figure>
+        <figure class="gallery__item"><img loading="lazy" src="assets/img/obras/obra-04.webp" alt="Obra Moura Engenharia 04" /></figure>
+        <figure class="gallery__item"><img loading="lazy" src="assets/img/obras/obra-05.webp" alt="Obra Moura Engenharia 05" /></figure>
+        <figure class="gallery__item"><img loading="lazy" src="assets/img/obras/obra-06.webp" alt="Obra Moura Engenharia 06" /></figure>
+        <figure class="gallery__item"><img loading="lazy" src="assets/img/obras/obra-07.webp" alt="Obra Moura Engenharia 07" /></figure>
+        <figure class="gallery__item"><img loading="lazy" src="assets/img/obras/obra-08.webp" alt="Obra Moura Engenharia 08" /></figure>
+        <figure class="gallery__item"><img loading="lazy" src="assets/img/obras/obra-09.webp" alt="Obra Moura Engenharia 09" /></figure>
+        <figure class="gallery__item"><img loading="lazy" src="assets/img/obras/obra-10.webp" alt="Obra Moura Engenharia 10" /></figure>
+        <figure class="gallery__item"><img loading="lazy" src="assets/img/obras/obra-11.webp" alt="Obra Moura Engenharia 11" /></figure>
+        <figure class="gallery__item"><img loading="lazy" src="assets/img/obras/obra-12.webp" alt="Obra Moura Engenharia 12" /></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- DEPOIMENTOS                                                     -->
+  <!-- ============================================================== -->
+  <section class="testimonials" id="depoimentos">
+    <div class="container">
+      <p class="eyebrow eyebrow--dark">O que dizem quem já construiu com a Moura</p>
+      <h2 class="section-title">Depoimentos de clientes reais</h2>
+
+      <div class="testimonials__grid">
+        <article class="testimonial">
+          <p class="testimonial__quote">
+            "Fui a três construtoras antes. Todas me davam um número fechado bonito, nenhuma me mostrava como chegaram àquele valor. Com a Moura eu via cada nota fiscal. A obra terminou dentro do que foi planejado."
+          </p>
+          <div class="testimonial__person">
+            <img src="assets/img/depoimentos/carlos.webp" alt="" width="64" height="64" loading="lazy" />
+            <div>
+              <strong>Carlos Henrique</strong>
+              <span>Médico</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial">
+          <p class="testimonial__quote">
+            "Não tinha o valor total e achei que não conseguiria construir. O Lucas me explicou o financiamento Caixa, cuidou de tudo e estruturou o cronograma inteiro. Comecei a obra com o caixa sob controle e dormindo tranquila."
+          </p>
+          <div class="testimonial__person">
+            <img src="assets/img/depoimentos/juliana.webp" alt="" width="64" height="64" loading="lazy" />
+            <div>
+              <strong>Juliana Andrade</strong>
+              <span>Empresária</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="testimonial">
+          <p class="testimonial__quote">
+            "O diferencial foi a ajuda desde o terreno. Quando compramos o lote, o Lucas já analisou a documentação e alertou sobre um problema que ia travar o financiamento. Resolvemos antes de gastar qualquer coisa. Isso é assessoria de verdade."
+          </p>
+          <div class="testimonial__person">
+            <img src="assets/img/depoimentos/rodrigo-aline.webp" alt="" width="64" height="64" loading="lazy" />
+            <div>
+              <strong>Rodrigo & Aline</strong>
+              <span>TI e Professora</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- VIABILIDADE / FORM                                              -->
+  <!-- ============================================================== -->
+  <section class="viability" id="viabilidade">
+    <div class="container viability__inner">
+      <div class="viability__copy">
+        <p class="eyebrow">Próximo passo</p>
+        <h2 class="section-title">Solicite uma análise de viabilidade sem compromisso</h2>
+        <p class="section-lead">
+          Em uma conversa de até 40 minutos, mapeamos o seu perfil de crédito, avaliamos o terreno (ou o lote que você está prestes a adquirir) e devolvemos um diagnóstico honesto sobre o que dá para construir, quando e em que condições de financiamento.
+        </p>
+        <ul class="viability__checks">
+          <li>Análise da documentação do terreno</li>
+          <li>Simulação de financiamento Aquisição &amp; Construção</li>
+          <li>Escopo de projeto alinhado ao seu orçamento</li>
+          <li>Parecer técnico entregue por engenheiro</li>
+        </ul>
+        <p class="viability__note">
+          Pré-requisitos para o financiamento: renda familiar a partir de R$ 20.000 e ausência de restrições no nome.
+        </p>
+      </div>
+
+      <!-- IMPORTANT: form id, field ids, field names and action are preserved
+           exactly as configured in the original Elementor Pro form so the
+           M² Black tracking webhook keeps working. Do NOT rename. -->
+      <form
+        id="formulario"
+        name="formulario"
+        class="form"
+        action="https://m2black.atenderbem.com/webhookcapture/capture/35d910f584164a2f9e43251854b7053b"
+        method="POST"
+        novalidate>
+        <h3 class="form__title">Solicitar viabilidade gratuita</h3>
+        <p class="form__subtitle">Retornamos em até um dia útil pelo WhatsApp informado.</p>
+
+        <div class="form__field">
+          <label for="field-nome">Nome completo</label>
+          <input type="text" id="field-nome" name="Nome" placeholder="Seu nome completo" required autocomplete="name" />
+        </div>
+
+        <div class="form__field">
+          <label for="ad4219d">E-mail</label>
+          <input type="email" id="ad4219d" name="Email" placeholder="Seu melhor e-mail" required autocomplete="email" />
+        </div>
+
+        <div class="form__field">
+          <label for="40c74a0">WhatsApp</label>
+          <input type="tel" id="40c74a0" name="WhatsApp" placeholder="(34) 9 0000-0000" required autocomplete="tel" inputmode="tel" />
+        </div>
+
+        <div class="form__row">
+          <div class="form__field">
+            <label for="field-terreno">Já possui terreno?</label>
+            <select id="field-terreno" name="terreno">
+              <option value="">Selecione</option>
+              <option value="Sim, terreno próprio">Sim, terreno próprio</option>
+              <option value="Vou adquirir via financiamento">Vou adquirir via financiamento</option>
+              <option value="Ainda não tenho">Ainda não tenho</option>
+            </select>
+          </div>
+
+          <div class="form__field">
+            <label for="field-projeto">Já tem projeto?</label>
+            <select id="field-projeto" name="projeto">
+              <option value="">Selecione</option>
+              <option value="Sim, projeto aprovado">Sim, projeto aprovado</option>
+              <option value="Em desenvolvimento">Em desenvolvimento</option>
+              <option value="Precisamos do projeto">Precisamos do projeto</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form__field">
+          <label for="field-renda">Renda familiar mensal aproximada</label>
+          <select id="field-renda" name="renda">
+            <option value="">Selecione</option>
+            <option value="Até R$ 20.000">Até R$ 20.000</option>
+            <option value="R$ 20.000 – R$ 30.000">R$ 20.000 – R$ 30.000</option>
+            <option value="R$ 30.000 – R$ 50.000">R$ 30.000 – R$ 50.000</option>
+            <option value="Acima de R$ 50.000">Acima de R$ 50.000</option>
+          </select>
+        </div>
+
+        <!-- Hidden fields preserved from Elementor (site + UTM tracking) -->
+        <input type="hidden" name="Nome_do_site" value="Moura Engenharia" />
+        <input type="hidden" id="field_f69b13c" name="Nome_da_pagina" value="Home | Construção Financiada" />
+        <input type="hidden" id="utm_source" name="utm_source" value="" />
+        <input type="hidden" id="utm_medium" name="utm_medium" value="" />
+        <input type="hidden" id="utm_campaign" name="utm_campaign" value="" />
+        <input type="hidden" id="utm_term" name="utm_term" value="" />
+        <input type="hidden" id="utm_content" name="utm_content" value="" />
+
+        <button type="submit" class="btn btn--accent btn--lg btn--block">Solicitar viabilidade gratuita</button>
+
+        <p class="form__consent">
+          Ao enviar, você concorda em receber o contato da Moura Engenharia. Seus dados são tratados conforme a LGPD e não são compartilhados com terceiros.
+        </p>
+
+        <div class="form__feedback" id="form-feedback" role="status" aria-live="polite" hidden></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================================================== -->
+  <!-- FOOTER                                                          -->
+  <!-- ============================================================== -->
+  <footer class="site-footer">
+    <div class="container site-footer__grid">
+      <div class="site-footer__brand">
+        <img src="assets/img/logo-tight.webp" alt="Moura Engenharia" width="743" height="252" class="site-footer__logo" />
+        <p class="site-footer__tagline">
+          Construtora e Incorporadora em Uberlândia - MG. Especialistas em construção financiada do terreno às chaves.
+        </p>
+      </div>
+
+      <div class="site-footer__col">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="https://wa.me/5534988710814?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20entender%20a%20constru%C3%A7%C3%A3o%20financiada">WhatsApp (34) 9 8871-0814</a></li>
+          <li><a href="#viabilidade">Solicitar viabilidade</a></li>
+          <li>Uberlândia - MG</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom container">
+      <small>© <span id="year"></span> Moura Engenharia - Todos os direitos reservados.</small>
+      <small>Feito com precisão por M² Black</small>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp -->
+  <a
+    class="wa-float"
+    href="https://wa.me/5534988710814?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20entender%20a%20constru%C3%A7%C3%A3o%20financiada"
+    target="_blank"
+    rel="noopener"
+    aria-label="Falar no WhatsApp com a Moura Engenharia">
+    <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+      <path fill="currentColor" d="M16.001 3.2c-7.072 0-12.8 5.728-12.8 12.8 0 2.256.592 4.464 1.712 6.4L3.2 28.8l6.592-1.696a12.72 12.72 0 006.209 1.6h.001c7.072 0 12.8-5.728 12.8-12.8s-5.729-12.704-12.801-12.704zm0 23.36a10.54 10.54 0 01-5.376-1.472l-.384-.224-3.904 1.024 1.04-3.808-.256-.4a10.56 10.56 0 01-1.616-5.648c0-5.84 4.752-10.592 10.592-10.592s10.592 4.752 10.592 10.592-4.752 10.528-10.688 10.528zm5.824-7.968c-.32-.16-1.888-.928-2.176-1.04-.288-.112-.496-.16-.72.16s-.816 1.04-1.008 1.248c-.192.224-.368.24-.688.08-.32-.16-1.344-.496-2.56-1.584-.944-.848-1.584-1.888-1.776-2.208-.192-.32-.016-.496.144-.656.144-.144.32-.368.48-.56.16-.192.224-.32.32-.528.096-.208.048-.4-.032-.56-.08-.16-.72-1.728-.992-2.368-.256-.608-.528-.528-.72-.544-.192-.016-.4-.016-.608-.016s-.56.08-.848.4c-.288.32-1.104 1.072-1.104 2.624s1.136 3.04 1.296 3.248c.16.208 2.224 3.392 5.392 4.76.752.32 1.344.512 1.808.672.752.24 1.44.208 1.984.128.608-.096 1.872-.768 2.128-1.504.272-.752.272-1.392.192-1.504-.08-.128-.288-.208-.608-.368z"/>
+    </svg>
+    <span>WhatsApp</span>
+  </a>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
